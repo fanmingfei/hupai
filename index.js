@@ -305,8 +305,8 @@ function getIncreaseTime(preTime, prePrice, month) {
     let finallyPrice = monData[preTime] + prePrice;
 
     return Object.keys(monData).find(key => {
-        return monData[key] + 300 >= finallyPrice
-    });
+        return (monData[key] + 300 >= finallyPrice) && finallyPrice > monData[60];
+    }) || false;
 }
 
 //for (let i = 1; i <= 12; i ++) {
@@ -367,6 +367,6 @@ for (let i = 1; i <= 12; i++) {
         }
     });
 }
-Object.keys(successMonthCount).forEach(key => {
-    console.log(key, successMonthCount[key] / successCount[key]);
-})
+
+
+// 写完了代码，看完了一些数据，感觉，其实也没有卵用主要还是看运气。
